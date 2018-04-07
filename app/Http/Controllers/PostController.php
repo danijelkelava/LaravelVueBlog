@@ -8,11 +8,13 @@ class PostController extends Controller
 {
     public function index()
     {
-    	return view('index');
+    	$last_three_posts = [];
+    	return view('index', compact('last_three_posts'));
     }
 
     public function show()
     {
-    	return view('blog');
+    	$posts = [];
+    	return view('blog', compact('posts'));
     }
 }
