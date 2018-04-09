@@ -15,6 +15,7 @@ Route::get('/', 'FrontEndController@index')->name('home');
 
 Route::get('/blog', 'FrontEndController@show')->name('blog');
 
+Auth::routes();
 Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::post('/posts', 'PostController@store');
