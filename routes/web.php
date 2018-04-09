@@ -11,11 +11,15 @@
 |
 */
 
-Route::get('/', 'PostController@index')->name('home');
+Route::get('/', 'FrontEndController@index')->name('home');
 
-Route::get('/blog', 'PostController@show')->name('blog');
+Route::get('/blog', 'FrontEndController@show')->name('blog');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
+
+Route::post('/posts', 'PostController@store');
+
+
 
 
 

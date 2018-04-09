@@ -3,18 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class PostController extends Controller
 {
-    public function index()
-    {
-    	$last_three_posts = [];
-    	return view('index', compact('last_three_posts'));
-    }
+    
 
-    public function show()
+    public function store(Request $request)
     {
-    	$posts = [];
-    	return view('blog', compact('posts'));
+        try{
+
+            Post::create([
+                'title' => request('title'),
+                'body' => request('body')
+            ]);
+
+        }catch(\Illuminate\Database\QueryException $e){
+
+            dd($e);
+            
+        }
+        
+
+        return redirect()->route('admin');
     }
 }

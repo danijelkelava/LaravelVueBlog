@@ -51,4 +51,5 @@ class RouteTest extends TestCase
                          ->assertViewIs('admin')
                          ->assertSee('Admin Section');
     }
+
 }
