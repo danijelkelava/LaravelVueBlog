@@ -49,7 +49,6 @@ class RouteTest extends TestCase
                          ->assertStatus(200)
                          ->assertSuccessful()
                          ->assertViewIs('admin')
-                         ->assertSee('Admin Section')
-                         ->assertViewHas('posts');
+                         ->assertSee('Admin Section');
     }
 }
