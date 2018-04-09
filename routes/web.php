@@ -15,4 +15,8 @@ Route::get('/', 'PostController@index')->name('home');
 
 Route::get('/blog', 'PostController@show')->name('blog');
 
+Route::get('/admin', 'AdminController@show')->name('admin');
+
+
+
 

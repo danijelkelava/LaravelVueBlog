@@ -37,4 +37,19 @@ class RouteTest extends TestCase
                          ->assertSee('Welcome to my Blog')
                          ->assertViewHas('posts');
     }
+
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testAdminPage()
+    {
+        $response = $this->get('/admin')
+                         ->assertStatus(200)
+                         ->assertSuccessful()
+                         ->assertViewIs('admin')
+                         ->assertSee('Admin Section')
+                         ->assertViewHas('posts');
+    }
 }
