@@ -19,7 +19,6 @@ Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 
-Route::post('/posts', 'PostController@store');
 
 
 
