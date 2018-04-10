@@ -9,6 +9,7 @@ use App\User;
 
 class RouteTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic test example.
      *
@@ -47,11 +48,17 @@ class RouteTest extends TestCase
     public function testAdminPage()
     {
         $user = factory(User::class)->create();
+        
         $response = $this->actingAs($user)->get('/admin')
                          ->assertStatus(200)
                          ->assertSuccessful()
                          ->assertViewIs('admin')
                          ->assertSee('Laravel');
+    }
+
+    public function testGuestCantVisitAdminPage(){
+        $this->get('/admin')
+             ->assertRedirect('/login');
     }
 
 }
