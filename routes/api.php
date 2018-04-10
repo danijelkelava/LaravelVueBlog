@@ -17,4 +17,4 @@ use Illuminate\Http\Request;
     return $request->user();
 });*/
 
-Route::post('/posts', 'PostController@store');
+Route::post('/posts', 'PostController@store')->name('post.store');
