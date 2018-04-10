@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\User;
 
 class RouteTest extends TestCase
 {
@@ -45,11 +46,12 @@ class RouteTest extends TestCase
      */
     public function testAdminPage()
     {
-        $response = $this->get('/admin')
+        $user = factory(User::class)->create();
+        $response = $this->actingAs($user)->get('/admin')
                          ->assertStatus(200)
                          ->assertSuccessful()
                          ->assertViewIs('admin')
-                         ->assertSee('Admin Section');
+                         ->assertSee('Laravel');
     }
 
 }
