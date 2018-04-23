@@ -20,4 +20,5 @@
         <hr>
 
       </div> <!-- /container -->
+      <script src="{{ asset('js/app.js') }}"></script>
 @endsection
