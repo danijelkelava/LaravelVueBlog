@@ -15,6 +15,7 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component('lastposts', require('./components/LastPosts.vue'));
 Vue.component('posts', require('./components/Posts.vue'));
 
 const app = new Vue({

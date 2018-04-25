@@ -28,12 +28,13 @@
 			this.fetchPosts();
 		},
 		methods: {
-			fetchPosts(){
-				fetch('api/posts')
+			fetchPosts(page_url){
+				page_url = page_url || 'api/posts';
+				fetch(page_url)
 				.then(res => res.json())
 				.then(res => {
 					this.posts = res.data;
-					console.log(res.data[1]);
+					//console.log(res.data[1]);
 				})
 			}
 		}
