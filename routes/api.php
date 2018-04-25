@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
     return $request->user();
 });*/
 
+Route::get('lastposts', 'PostController@lastPosts');
+
 Route::get('posts', 'PostController@index');
 
 Route::post('posts', 'PostController@store')->name('post.store');

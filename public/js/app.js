@@ -47411,7 +47411,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(40)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(50)
 /* template */
 var __vue_template__ = __webpack_require__(49)
 /* template functional */
@@ -47459,30 +47459,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    _vm._l(_vm.posts, function(post) {
+      return _c("div", { key: post.id, staticClass: "col-xs-12" }, [
+        _c("h2", [_vm._v(_vm._s(post.title))]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(post.body))]),
+        _vm._v(" "),
+        _vm._m(0, true)
+      ])
+    })
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "col-xs-12" }, [
-        _c("h2", [_vm._v("lastposts")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("lastposts")]),
-        _vm._v(" "),
-        _c("p", [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-secondary",
-              attrs: { href: "#", role: "button" }
-            },
-            [_vm._v("View details »")]
-          )
-        ])
-      ])
+    return _c("p", [
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { href: "#", role: "button" }
+        },
+        [_vm._v("View details »")]
+      )
     ])
   }
 ]
@@ -47494,6 +47497,53 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-a043aa14", module.exports)
   }
 }
+
+/***/ }),
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			posts: [],
+			post: {
+				id: '',
+				title: '',
+				body: ''
+			},
+			post_id: ''
+		};
+	},
+	created: function created() {
+		this.fetchLastPosts();
+	},
+
+	methods: {
+		fetchLastPosts: function fetchLastPosts() {
+			var _this = this;
+
+			fetch('api/lastposts').then(function (res) {
+				return res.json();
+			}).then(function (res) {
+				_this.posts = res.data;
+				//console.log(res.data[1]);
+			});
+		}
+	}
+});
 
 /***/ })
 /******/ ]);

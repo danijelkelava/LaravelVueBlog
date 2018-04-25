@@ -20,6 +20,18 @@ class PostController extends Controller
 
         return PostResource::collection($posts);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function lastPosts()
+    {
+        $posts = Post::orderBy('created_at', 'desc')->take(3)->get();
+
+        return PostResource::collection($posts);
+    }
     
     /**
      * Store a newly created resource in storage.
