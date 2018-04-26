@@ -3,7 +3,7 @@
   <div class="col-xs-12" v-for="post in posts" v-bind:key="post.id">
     <h2>{{ post.title }}</h2>
     <p>{{ post.body }}</p>
-    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    <button @click="deletePost(post.id)" class="btn btn-danger" href="#" role="button">delete</button>
   </div>
   <nav aria-label="Page navigation example">
 	  <ul class="pagination">
@@ -59,6 +59,9 @@
 					prev_page_url: links.prev 
 				}
 				this.pagination = pagination;
+			},
+			deletePost(post){
+				
 			}
 		}
 	}
