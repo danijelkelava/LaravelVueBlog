@@ -61,7 +61,17 @@
 				this.pagination = pagination;
 			},
 			deletePost(post){
-				
+				if (confirm('Delete?')) {
+					fetch(`api/posts/${post}`, {
+						method: 'delete'
+					})
+					.then(res => res.json())
+					.then(data => {
+						alert('Article Removed');
+						this.fetchPosts();
+					})
+					.catch(error => console.log(error));
+				}
 			}
 		}
 	}
