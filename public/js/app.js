@@ -47653,7 +47653,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(11)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(53)
 /* template */
 var __vue_template__ = __webpack_require__(52)
 /* template functional */
@@ -47701,36 +47701,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("form", [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "blogTitle" } }, [_vm._v("Title")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", id: "blogTitle", placeholder: "Blog title" }
-          })
-        ]),
+  return _c(
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.storePost($event)
+        }
+      }
+    },
+    [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "blogTitle" } }, [_vm._v("Title")]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "blogBody" } }, [_vm._v("Blog text")]),
-          _vm._v(" "),
-          _c("textarea", {
-            staticClass: "form-control",
-            attrs: { id: "blogBody", rows: "3" }
-          })
-        ])
-      ])
-    ])
-  }
-]
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.post.title,
+              expression: "post.title"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", id: "blogTitle", placeholder: "Blog title" },
+          domProps: { value: _vm.post.title },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.post, "title", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "blogBody" } }, [_vm._v("Blog text")]),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.post.body,
+              expression: "post.body"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { id: "blogBody", rows: "3" },
+          domProps: { value: _vm.post.body },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.post, "body", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Store")]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -47739,6 +47781,48 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-10373c73", module.exports)
   }
 }
+
+/***/ }),
+/* 53 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			posts: [],
+			post: {
+				id: '',
+				title: '',
+				body: ''
+			},
+			post_id: ''
+		};
+	},
+
+	methods: {
+		storePost: function storePost() {
+			alert('hi');
+		}
+	}
+});
 
 /***/ })
 /******/ ]);

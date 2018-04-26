@@ -9,9 +9,7 @@
             <div class="card">
                 <div id="posts">
                     <createpost></createpost>
-                </div>
-                    
-                </div>
+                </div>                    
             </div>
         </div>
     </div>
