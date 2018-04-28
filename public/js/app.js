@@ -47482,7 +47482,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
 		return {
-			title: 'Posts',
 			posts: [],
 			post: {
 				id: '',
@@ -47502,7 +47501,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var _this = this;
 
 			var vm = this;
-			page_url = page_url || 'api/posts';
+			page_url = page_url || '/api/posts';
 			fetch(page_url).then(function (res) {
 				return res.json();
 			}).then(function (res) {

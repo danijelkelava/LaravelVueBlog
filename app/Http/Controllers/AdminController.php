@@ -24,7 +24,17 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('admin.index');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showPosts()
+    {
+        return view('admin.posts');
     }
 
     /**

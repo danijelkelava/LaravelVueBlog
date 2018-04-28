@@ -24,7 +24,6 @@
 	export default {
 		data(){
 			return {
-				title: 'Posts',
 				posts: [],
 				post: {
 					id: '',
@@ -41,7 +40,7 @@
 		methods: {
 			fetchPosts(page_url){
 				let vm = this;
-				page_url = page_url || 'api/posts';
+				page_url = page_url || '/api/posts';
 				fetch(page_url)
 				.then(res => res.json())
 				.then(res => {
