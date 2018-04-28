@@ -17,18 +17,29 @@
 	export default {
 		data(){
 			return{
-				posts: [],
 				post: {
 					id: '',
 					title: '',
 					body: ''
-				},
-				post_id: ''
+				}
 			}
 		},
 		methods: {
 			storePost(){
-				alert('hi');
+				fetch('api/posts', {
+					method: 'post',
+					body: JSON.stringify(this.post),
+					headers: {
+						'content-type': 'application/json'
+					}
+				})
+				.then(res => res.json())
+				.then(data => {
+					this.post.title = '';
+					this.post.body = '';
+					alert('Article added');
+				})
+				.catch(error => console.log(error));
 			}
 		}
 	}

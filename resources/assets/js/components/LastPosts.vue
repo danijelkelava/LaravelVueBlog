@@ -3,7 +3,7 @@
 	  <div class="col-xs-12" v-for="post in posts" v-bind:key="post.id">
 	    <h2>{{ post.title }}</h2>
 	    <p>{{ post.body }}</p>
-	    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+	    <button @click="deletePost(post.id)" class="btn btn-danger" href="#" role="button">delete</button>
 	  </div>
 	</div>
 </template>
@@ -32,6 +32,19 @@
 					this.posts = res.data;
 					//console.log(res.data[1]);
 				})
+			},
+			deletePost(post){
+				if (confirm('Delete?')) {
+					fetch(`api/posts/${post}`, {
+						method: 'delete'
+					})
+					.then(res => res.json())
+					.then(data => {
+						alert('Article Removed');
+						this.fetchLastPosts();
+					})
+					.catch(error => console.log(error));
+				}
 			}
 		}
 	}
