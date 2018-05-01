@@ -2,7 +2,7 @@
 	<div>
 		<ul class="nav">
 		  <li v-for="tab in tabs" >
-		    <a @click="selectTab(tab)" :class="{'text-success': tab.isActive}" class="nav-link" href="#">{{ tab.name }}</a>
+		    <a :href="tab.href" @click="selectTab(tab)" :class="{'text-white bg-dark': tab.isActive}" class="nav-link" >{{ tab.name }}</a>
 		  </li>
 		</ul>
 		<div>

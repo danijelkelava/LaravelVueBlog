@@ -47916,8 +47916,8 @@ var render = function() {
             "a",
             {
               staticClass: "nav-link",
-              class: { "text-success": tab.isActive },
-              attrs: { href: "#" },
+              class: { "text-white bg-dark": tab.isActive },
+              attrs: { href: tab.href },
               on: {
                 click: function($event) {
                   _vm.selectTab(tab)
@@ -48041,7 +48041,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._t("default")], 2)
+  return _c(
+    "div",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.isActive,
+          expression: "isActive"
+        }
+      ]
+    },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -48078,6 +48092,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	props: {
 		name: { required: true },
 		selected: { default: false }
+	},
+	computed: {
+		href: function href() {
+			return '#' + this.name.toLowerCase().replace(/ /g, '-');
+		}
 	}
 });
 
