@@ -4,7 +4,15 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+	<ul class="nav">
+	  <li class="nav-item">
+	    <a class="nav-link" href="{{ route('admin') }}">Admin</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="{{ route('admin.posts') }}">Edit Posts</a>
+	  </li>
+	</ul>
+    <div class="row">
         <div class="col-md-8">
             <div id="posts">
                 <posts></posts>

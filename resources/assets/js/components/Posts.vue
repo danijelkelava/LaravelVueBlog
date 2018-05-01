@@ -61,7 +61,7 @@
 			},
 			deletePost(post){
 				if (confirm('Delete?')) {
-					fetch(`api/posts/${post}`, {
+					fetch(`/api/posts/${post}`, {
 						method: 'delete'
 					})
 					.then(res => res.json())
