@@ -47911,10 +47911,21 @@ var render = function() {
       "ul",
       { staticClass: "nav" },
       _vm._l(_vm.tabs, function(tab) {
-        return _c("li", { staticClass: "nav-item" }, [
-          _c("a", { staticClass: "nav-link active", attrs: { href: "#" } }, [
-            _vm._v(_vm._s(tab.name))
-          ])
+        return _c("li", [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              class: { "text-success": tab.isActive },
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  _vm.selectTab(tab)
+                }
+              }
+            },
+            [_vm._v(_vm._s(tab.name))]
+          )
         ])
       })
     ),
@@ -47964,6 +47975,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 	mounted: function mounted() {
 		console.log(this.tabs);
+	},
+
+	methods: {
+		selectTab: function selectTab(selectedTab) {
+			this.tabs.forEach(function (tab) {
+				tab.isActive = tab.name == selectedTab.name;
+			});
+		}
 	}
 });
 
@@ -48047,8 +48066,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			isActive: false
+		};
+	},
+	mounted: function mounted() {
+		this.isActive = this.selected;
+	},
+
 	props: {
-		name: { required: true }
+		name: { required: true },
+		selected: { default: false }
 	}
 });
 

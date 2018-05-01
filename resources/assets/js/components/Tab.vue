@@ -5,8 +5,17 @@
 </template>
 <script>
 	export default{
+		data(){
+			return {
+				isActive: false
+			}
+		},
+		mounted(){
+			this.isActive = this.selected;
+		},
 		props: {
-			name: {required: true}
+			name: {required: true},
+			selected: {default: false}
 		}
 	}
 </script>

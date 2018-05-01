@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<ul class="nav">
-		  <li v-for="tab in tabs" class="nav-item">
-		    <a class="nav-link active" href="#">{{ tab.name }}</a>
+		  <li v-for="tab in tabs" >
+		    <a @click="selectTab(tab)" :class="{'text-success': tab.isActive}" class="nav-link" href="#">{{ tab.name }}</a>
 		  </li>
 		</ul>
 		<div>
@@ -24,6 +24,13 @@
 		},
 		mounted(){
 			console.log(this.tabs);
+		},
+		methods:{
+			selectTab(selectedTab){
+				this.tabs.forEach(tab => {
+					tab.isActive = (tab.name == selectedTab.name);
+				})
+			}
 		}
 	}
 </script>
