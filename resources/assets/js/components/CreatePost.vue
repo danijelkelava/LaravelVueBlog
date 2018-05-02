@@ -37,7 +37,7 @@
 				.then(data => {
 					this.post.title = '';
 					this.post.body = '';
-					alert('Article added');
+					alert('Post added');
 				})
 				.catch(error => console.log(error));
 			}
