@@ -2,7 +2,7 @@
 		<form @submit.prevent="storePost">
 	      <div class="form-group">
 	        <label for="blogTitle">Title</label>
-	        <input v-model="post.title" type="text" class="form-control" id="blogTitle" placeholder="Blog title">
+	        <input v-model="post.title" type="text" class="form-control" id="blogTitle" placeholder="Blog title" @blur="postIsAdded">
 	      </div>
 
 	      <div class="form-group">
@@ -40,6 +40,9 @@
 					alert('Post added');
 				})
 				.catch(error => console.log(error));
+			},
+			postIsAdded(){
+				Event.$emit('applied');
 			}
 		}
 	}

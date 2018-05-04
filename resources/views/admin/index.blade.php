@@ -9,7 +9,7 @@
             <div id="posts">
             	<tabs>
             		<tab name="Add post" :selected="true">
-            			<createpost></createpost>
+            			<createpost @applied="postIsAdded"></createpost>
             		</tab>
             		<tab name="Edit post">
             			<posts></posts>

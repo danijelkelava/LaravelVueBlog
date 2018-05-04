@@ -7,6 +7,8 @@
 
 require('./bootstrap');
 
+
+
 window.Vue = require('vue');
 
 /**
@@ -15,6 +17,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+window.Event = new Vue();
+
 Vue.component('lastposts', require('./components/LastPosts.vue'));
 Vue.component('posts', require('./components/Posts.vue'));
 Vue.component('createpost', require('./components/CreatePost.vue'));
@@ -22,5 +26,8 @@ Vue.component('tabs', require('./components/Tabs.vue'));
 Vue.component('tab', require('./components/Tab.vue'));
 
 const app = new Vue({
-    el: '#posts'
+    el: '#posts',
+    created(){
+    	Event.$on('applied', () => alert('Applied'));
+    }
 });

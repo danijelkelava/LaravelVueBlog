@@ -14000,6 +14000,8 @@ window.Vue = __webpack_require__(37);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+window.Event = new Vue();
+
 Vue.component('lastposts', __webpack_require__(40));
 Vue.component('posts', __webpack_require__(43));
 Vue.component('createpost', __webpack_require__(46));
@@ -14007,7 +14009,12 @@ Vue.component('tabs', __webpack_require__(49));
 Vue.component('tab', __webpack_require__(52));
 
 var app = new Vue({
-  el: '#posts'
+  el: '#posts',
+  created: function created() {
+    Event.$on('applied', function () {
+      return alert('Applied');
+    });
+  }
 });
 
 /***/ }),
@@ -47748,6 +47755,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			}).catch(function (error) {
 				return console.log(error);
 			});
+		},
+		postIsAdded: function postIsAdded() {
+			Event.$emit('applied');
 		}
 	}
 });
@@ -47787,6 +47797,7 @@ var render = function() {
           attrs: { type: "text", id: "blogTitle", placeholder: "Blog title" },
           domProps: { value: _vm.post.title },
           on: {
+            blur: _vm.postIsAdded,
             input: function($event) {
               if ($event.target.composing) {
                 return
