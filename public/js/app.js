@@ -47520,6 +47520,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			}).catch(function (error) {
 				return console.log(error);
 			});
+			//setTimeout(this.fetchPosts, 2000);
 		},
 		makePagination: function makePagination(meta, links) {
 			var pagination = {

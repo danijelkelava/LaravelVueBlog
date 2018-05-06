@@ -49,6 +49,7 @@
 					//console.log(res.data[1]);
 				})
 				.catch(error => console.log(error));
+				//setTimeout(this.fetchPosts, 2000);
 			},
 			makePagination(meta, links){
 				let pagination = {
