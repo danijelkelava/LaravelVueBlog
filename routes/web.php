@@ -22,3 +22,5 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin/posts', 'AdminController@showPosts')->name('admin.posts');
 
 
+
+Route::resource('admin/permission', 'AdminController\\PermissionController');
