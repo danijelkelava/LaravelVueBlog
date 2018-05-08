@@ -5,6 +5,17 @@
         {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
+<div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
+    <label for="permissions" class="col-md-4 control-label">{{ 'Name' }}</label>
+    <div class="col-md-6">
+        <select multiple="multiple" class="form-control" name="name" type="text" id="permissions" value="{{ $permissions->name or ''}}" >
+        {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+        @foreach($permissions as $permission)
+        <option value="{{$permission->id}}">{{$permission->name}}</option>
+        @endforeach
+        </select>
+    </div>
+</div>
 
 <div class="form-group">
     <div class="col-md-offset-4 col-md-4">

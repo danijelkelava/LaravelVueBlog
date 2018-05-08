@@ -4,7 +4,7 @@ namespace App\Http\Controllers\AdminController;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 
@@ -37,7 +37,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('admin.role.create');
+        $permissions = Permission::select('id','name')->get();
+        return view('admin.role.create', compact('permissions'));
     }
 
     /**
