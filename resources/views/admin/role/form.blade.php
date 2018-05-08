@@ -8,7 +8,7 @@
 <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
     <label for="permissions" class="col-md-4 control-label">{{ 'Name' }}</label>
     <div class="col-md-6">
-        <select multiple="multiple" class="form-control" name="name" type="text" id="permissions" value="{{ $permissions->name or ''}}" >
+        <select multiple="multiple" class="form-control" name="permissions" type="text" id="permissions">
         {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
         @foreach($permissions as $permission)
         <option value="{{$permission->id}}">{{$permission->name}}</option>

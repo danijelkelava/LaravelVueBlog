@@ -51,7 +51,7 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         
-        $requestData = $request->all();
+        $requestData = $request->except('permissions');
         
         Role::create($requestData);
 
@@ -82,8 +82,9 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = Role::findOrFail($id);
+        $permissions = Permission::select('id','name')->get();
 
-        return view('admin.role.edit', compact('role'));
+        return view('admin.role.edit', compact('role', 'permissions'));
     }
 
     /**
