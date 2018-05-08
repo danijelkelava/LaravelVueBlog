@@ -52,8 +52,10 @@ class RoleController extends Controller
     {
         
         $requestData = $request->except('permissions');
-        
-        Role::create($requestData);
+        $permissions = $request->permissions;
+        //dd($requestData);
+        $role = Role::create($requestData);
+        $role->givePermissionTo($permissions);
 
         return redirect('admin/role')->with('flash_message', 'Role added!');
     }
